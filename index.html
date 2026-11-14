@@ -91,10 +91,10 @@
     -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%); mask-image: linear-gradient(to bottom, transparent 0, #000 16%); }
   .dusk .plate > * { position:absolute; }
   .dusk .base, .dusk .ripple { inset:0; width:100%; height:100%; display:block; }
-  .dusk .ripple { filter: url(#ripple);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 46%, #000 52%, #000 93%, transparent 100%), radial-gradient(ellipse 11% 18% at 53% 71.5%, #000 72%, transparent 100%);
+  .dusk .ripple { filter: url(#ripple); inset: 46% auto auto 0; width: 100%; height: 54%; object-fit: cover; object-position: 0 100%;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 11%, #000 87%, transparent 100%), radial-gradient(ellipse 11% 33.3% at 53% 47.2%, #000 72%, transparent 100%);
     -webkit-mask-composite: xor;
-            mask-image: linear-gradient(to bottom, transparent 46%, #000 52%, #000 93%, transparent 100%), radial-gradient(ellipse 11% 18% at 53% 71.5%, #000 72%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, #000 11%, #000 87%, transparent 100%), radial-gradient(ellipse 11% 33.3% at 53% 47.2%, #000 72%, transparent 100%);
             mask-composite: exclude; }
   .dusk .foam { left:0; top:0; width:200%; height:100%; mix-blend-mode: screen; filter: blur(1.6px); }
   .dusk .foam.far { animation: foamFar 15s linear infinite; }
@@ -112,6 +112,12 @@
   .dusk .copy a:hover { border-bottom-color:#f0eee9; }
   .dusk .fine { left:0; right:0; bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); text-align:center; font-size:.72rem; font-style:italic; opacity:.6; margin:0; z-index:3; }
   @media (max-width: 800px) { .dusk .plate-wrap { -webkit-mask-image:none; mask-image:none; } }
+  @media (min-width: 801px) {
+    .dusk .plate-wrap { display: block; container-type: inline-size; aspect-ratio: 100 / 75; overflow: hidden; -webkit-mask-image: none; mask-image: none; }
+    .dusk .plate { position: absolute; left: 0; top: -40.04cqw; width: 100%; -webkit-mask-image: none; mask-image: none; }
+    .dusk .copy { top: 49.04cqw; }
+    .dusk .fine { bottom: auto; top: calc(115.04cqw - 2.4rem); }
+  }
   @media (prefers-reduced-motion: reduce) { .dusk * { animation: none !important; } }
 
   /* Room / page 2 */
